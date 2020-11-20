@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Wed Jun 28 13:46:30 2017
@@ -8,7 +8,7 @@ congiguration
 
 
 port = '5000'
-host = '152.14.93.113'
+host = '127.0.0.1'
 
 
 similarity_threshold = 0.15
