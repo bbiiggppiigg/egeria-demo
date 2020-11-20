@@ -21,7 +21,7 @@ def normalize_noun(noun):
 
 
 def save_pickle(to_saved, dirname, filename):
-	print "save pickle to:", os.path.join(dirname, filename)
+	print ("save pickle to:", os.path.join(dirname, filename))
 	return pickle.dump(to_saved, open(os.path.join(dirname, filename),'w') )    
     
 def check_directory(directory):
@@ -33,7 +33,8 @@ def save_json(to_saved, dirname, filename):
         outfile.write(json.dumps(to_saved, indent=4, sort_keys = True))
         
 def load_pickle(dirname, filename):
-    return pickle.load(open(os.path.join(dirname, filename), 'r'))
+    print('trying to load file with path ',dirname,' file name ',filename)
+    return pickle.load(open(os.path.join(dirname, filename), 'rb'),encoding='latin1')
     
 def decode_utf8(s, encoding="utf8", errors="ignore"):
     return s.decode(encoding=encoding, errors=errors)
