@@ -32,6 +32,9 @@ import re, time
 import numpy as np
 from bs4 import BeautifulSoup
 #from Config import dictionary_filename, model_filename
+import sys
+
+sys.setrecursionlimit(10000)
 
 
 class QueryEngineHtml(object):
@@ -193,6 +196,7 @@ class QueryEngineHtml(object):
         #print 'prepare copy', time.time() - duration 
         #htmltext = soup.find('article') # id="contents"
         #duration = time.time()
+        print(dir(self.contentTag))
         contentTag = copy.deepcopy(self.contentTag)  #soup.find(id='contents-container')
         #print 'prepare deepcopy', time.time() - duration 
 
@@ -222,8 +226,8 @@ class QueryEngineHtml(object):
             contentTag.append(ptag)
         
         res = u'{% extends \"' + self.docname+'/base.html\" %} \n '
-        res += u"{% block sitenav %}\n" + unicode(navTag) +  u"\n {% endblock %} \n"
-        res += u"{% block content %}\n" + unicode(contentTag)+ u'\n {% endblock %} \n'
+        res += u"{% block sitenav %}\n" + str(navTag) +  u"\n {% endblock %} \n"
+        res += u"{% block content %}\n" + str(contentTag)+ u'\n {% endblock %} \n'
         # print "prepare return html", time.time() - duration 
         
         return res
