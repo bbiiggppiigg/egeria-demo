@@ -121,7 +121,7 @@ def show_summary(docname):
 def show_raw(docname):
     # if request.method == 'GET':
     if docname in allowed_docs:
-    	template = docname+'/raw.html'
+        template = docname+'/raw.html'
         return render_template(template, 
         						host=app.config['HOST'], 
         						port=app.config['PORT'], 
